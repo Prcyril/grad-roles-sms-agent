@@ -1,0 +1,33 @@
+{
+  "name": "jobagent",
+  "version": "1.0.0",
+  "description": "AI-powered job scout — scrapes 21 boards, filters with Claude, delivers via Twilio SMS",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/bootstrap.js",
+    "dev": "node --watch src/bootstrap.js",
+    "test:sms": "node scripts/test-sms.js",
+    "test:scrapers": "node scripts/test-phase2.js",
+    "test:yc": "node scripts/test-phase2.js yc",
+    "test:jobspy": "node scripts/test-phase2.js jobspy",
+    "test:pallet": "node scripts/test-phase2.js pallet",
+    "test:digest:dry": "node scripts/test-digest.js",
+    "test:digest:send": "node scripts/test-digest.js --send",
+    "test:health": "curl -s http://localhost:3000/health | json_pp"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@supabase/supabase-js": "^2.47.0",
+    "cheerio": "^1.0.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "node-cron": "^4.5.0",
+    "playwright": "^1.48.0",
+    "twilio": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
